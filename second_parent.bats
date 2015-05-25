@@ -6,20 +6,22 @@ dir="$HOME/projects/git-merge/repo"
   run git_ init
   run git_commit "m1"
   run git_commit "m2"
-  # run git_ log --oneline
+
   run git_checkout -b "featureA"
   run git_commit "a1"
   run git_commit "a2"
   run git_ log --oneline
   run git_checkout "master"
+  run git_commit "m3"
+  run sleep 0.8
   run git_ merge "featureA" --no-ff -m "Ma"
   run git_log_in_one_line
-  [[ "$output" =~ "Ma a2 a1 m2 m1" ]]
+  [[ "$output" =~ "Ma m3 a2 a1 m2 m1" ]]
   run messages
-  [[ "$output" == "m1 m2 a1 a2" ]]
-  run git_ revert -m 1 HEAD --no-edit
+  [[ "$output" =~ "a1 a2 m1 m2 m3" ]]
+  run git_ revert -m 2 HEAD --no-edit
   run messages
-  [[ "$output" == "m1 m2" ]]
+  [[ "$output" == "a1 a2 m1 m2" ]]
 }
 
 function git_()
@@ -47,5 +49,5 @@ function git_checkout()
 
 function messages()
 {
-  ls $dir | xargs
+	ls $dir | xargs
 }
