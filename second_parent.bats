@@ -1,4 +1,6 @@
-dir="$HOME/projects/git-merge/repo"
+current_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+dir=$current_dir/repo
+
 
 @test "" {
   run rm -rf $dir
