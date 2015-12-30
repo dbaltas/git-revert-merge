@@ -15,7 +15,7 @@ Steps:
 ## Run
 To run this:
 
-`bats tests`
+`bin\bats tests`
 
 [Bats](https://github.com/sstephenson/bats) testing framework required
 
