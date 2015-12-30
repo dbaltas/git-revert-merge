@@ -29,6 +29,11 @@ fi
 BATS_TEST_DIRNAME="$(dirname "$BATS_TEST_FILENAME")"
 BATS_TEST_NAMES=()
 
+
+ decho() {
+    echo "# DEBUG: " $@ >&3
+ }
+
 load() {
   local name="$1"
   local filename
