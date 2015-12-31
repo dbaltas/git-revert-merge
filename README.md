@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/dbaltas/git-revert-merge.svg?branch=master)](https://travis-ci.org/dbaltas/git-revert-merge)
+
 ## Purpose
 
 Check how `git-revert` works on merge commits when reverting by the first or second parent of the merge commit
@@ -20,5 +22,6 @@ To run this:
 [Bats](https://github.com/sstephenson/bats) testing framework required
 
 
+> This repo is tested with Bats on Travis-ci
 
 
